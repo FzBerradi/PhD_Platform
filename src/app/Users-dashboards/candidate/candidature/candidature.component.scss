@@ -1,0 +1,30 @@
+/* Styles pour le composant candidat */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 5px;
+}
+
+small {
+  color: red;
+}
+.page-wrapper {
+  max-width: 1275px;
+  height: auto;
+  margin: 0px auto;
+  margin-left: 18%;
+}
+
+.body-wrapper {
+   padding: 30px;
+  margin-left: 18%;
+}
+

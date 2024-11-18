@@ -1,0 +1,384 @@
+<div class="container light-style flex-grow-1 container-p-y">
+  <h4 class="font-weight-bold py-3 mb-4">
+      Les informations du candidats :
+  </h4>
+  <div class="card overflow-hidden">
+
+      <div class="row no-gutters row-bordered row-border-light">
+
+          <div class="col-md-3 pt-0">
+
+            <div class="card-body media align-items-center">
+              <img [src]="photoUrl ? photoUrl : 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAlAMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABQYHBAMCAf/EADgQAAICAQICBgYIBwEAAAAAAAABAgMEBREGQRIhIjFRgUJhcZGxwRMjMlKhstHhJENTYnJzghT/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/ANSABpkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhte1+nS19FXFW5TW6hv1R9cv0Amdt+4bMzLN1jUM6Td+TPov0YPoxXkjlrvuql0qrrIS8YzaKa1cFH0nivJx5xr1DfIp+9t24/qXSi6rIphdRNTrmt4yT6miD0AAAAAAAAAAAAAAAAAAHDrWoR0zTrMnqc+qNcXzk+7y5+Rmttk7rJW2ycrJvpSk+bZZ+PMhvIxcZPsqDsfm9l8GVUsKAAqBYuD9UeNmLCtl9Te+zv6M9vntt7iun7Gcq5KcHtKL3XtIrWgeWLd/6MWm5d1lcZe9JnqQAAAAAAAAAAAAAAAAUfjpbatVLlKhfmkVwuHHmNvXjZUV1Rbrl59a+DKeWFAAVAA9MaiWTkVUQ+1ZJRXmRWmaRFx0nCi+VEPyo6z5hCMIRhHuikl7D6IAAAAAAAAAAAAAAAAOfPxK8/Dtxrt+hZHbdcnyfkzNtQwL9OyZUZMWmvsyXdNeKNRPDMxMfNpdWVVCyHLpcvY+QGVgu2Rwbhzk5Y+RfV/bLaS+TPGHBde/bzp7eqtfqUU/kW/hDRZ1TWo5UXGW21MX39fpbfD3krp/DmnYEozVcrrF6Vz39y22JcgAAAAAAAAAAAAAAAAAEXrWt4+lQ2k/pMiS3jUn1+1+CAkpTjCLlOSjFd7b2SIbM4o0zGbjXbLIkuVS3XvfUUzUtVzNSs6WTa+h6NceqK8jiKatlvGkt/qcCO3jO3r/BHnHjTIT7WDS1/skVcDE1dMbjLGk0snFtq8XGSkvkTmDqWFnr+EyIWPnHfaS8u8y8/YzlCSlCTjJd0k9mhhrWgUzROKrapRo1RuyvuVy+1H2+Jca5wtrjZVOM4SW8ZRe6a9RFfQAAAAAAAAAAAHzZZCquVlkujCCcpS8EgI3X9XhpOL0o7SyLOquD+L9SM7utsvtlbdNzsm95Sfezp1bPnqWfZkz32fVCP3YruRxgAAaQAAAAACd4Z1yWnXrHyJN4ljSe/wDLfivV4kECK1pNNJppp9zXM/St8Gak8jFlhXS3soXYb5w/YshAAAAAAAAAIDjPMePpSpg+1kT6P/K638ifKTx1b0s/Hp5Qq6Xm3+wFaABUAAUAAAAAAAAd+h5jwdVx799odJRn/i+pmmGSGp6fb9PgY1v36oy/AyroAAAAAAAAKDxo99ba8KYfMAFQQANIAAAAAAAAAAAaXw+99Ewm/wCjEAlIkAARQAAf/9k='"
+                   alt="Candidate Photo"
+                   class="candidate-image" />
+          </div>
+
+
+
+              <div class="list-group list-group-flush account-settings-links">
+                  <a class="list-group-item list-group-item-action active" data-toggle="list"
+                      href="#account-general">General</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                      href="#info-supp">Information Supplimentaire</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                      href="#Baccalauréat">Baccalauréat</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                      href="#licence">Licence</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                      href="#master">Master</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                      href="#exp-prof">Expérience Professionnelle</a>
+                  <a class="list-group-item list-group-item-action" data-toggle="list"
+                  href="#doc">Les Documents</a>
+              </div>
+          </div>
+          <div class="col-md-9">
+              <div class="tab-content">
+                <div class="tab-pane fade active show" id="account-general">
+                  <hr class="border-light m-0">
+                  <div class="card-body">
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">Nom:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.nom}">{{ candidat.nom || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">Prenom:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.prenom}">{{ candidat.prenom || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">E-mail:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.email}">{{ candidat.email || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label bold-label">Date de Naissance:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.dateNaissance}">{{ candidat.dateNaissance ? (candidat.dateNaissance | date:'shortDate') : 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">CEN:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.cne}">{{ candidat.cne || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">CIN:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.cin}">{{ candidat.cin || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">Adresse:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.adresse}">{{ candidat.adresse || 'non remplie' }}</span>
+                      </div>
+                      <div class="form-group d-flex align-items-center">
+                          <label class="form-label">Pays:</label>
+                          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.pays}">{{ candidat.pays || 'non remplie' }}</span>
+                      </div>
+                  </div>
+              </div>
+
+
+<div class="tab-pane fade" id="info-supp">
+  <hr class="border-light m-0">
+  <div class="card-body">
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Fonctionnaire:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.fonctionnaire}">{{ candidat.fonctionnaire ? 'Oui' : 'Non' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Situation Familiale:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.situationFamiliale}">{{ candidat.situationFamiliale || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Nationalité:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.nationalite}">{{ candidat.nationalite || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Pays de Naissance:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.paysNaissance}">{{ candidat.paysNaissance || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Province de Naissance:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.provinceNaissance}">{{ candidat.provinceNaissance || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Lieu de Naissance:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.lieuNaissance}">{{ candidat.lieuNaissance || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Sexe:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.sexe}">{{ candidat.sexe || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Code Postal:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.codePostal}">{{ candidat.codePostal || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">E-mail Institutionnel:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.emailInstitutionnel}">{{ candidat.emailInstitutionnel || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Handicapé:</label>
+          <span class="form-control-plaintext">{{ candidat.handicape ? 'Oui' : 'Non' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Profession du Père:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.professionPere}">{{ candidat.professionPere || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Profession de la Mère:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.professionMere}">{{ candidat.professionMere || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Profession du Candidat:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.candidatProfession}">{{ candidat.candidatProfession || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Organisme Employeur:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.organismeEmployeur}">{{ candidat.organismeEmployeur || 'non remplie' }}</span>
+      </div>
+  </div>
+</div>
+
+<div class="tab-pane fade" id="Baccalauréat">
+  <div class="card-body pb-2">
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Nom Lycée:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.nomLycee}">{{ candidat.nomLycee || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Pays Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.paysBac}">{{ candidat.paysBac || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Province Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.provinceBac}">{{ candidat.provinceBac || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Filière Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.filiereBac}">{{ candidat.filiereBac || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Année d'Obtention Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.anneeObtentionBac}">{{ candidat.anneeObtentionBac || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Mention Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.mentionBac}">{{ candidat.mentionBac || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Moyenne Bac:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.moyenneBac}">{{ candidat.moyenneBac || 'non remplie' }}</span>
+      </div>
+  </div>
+</div>
+
+<div class="tab-pane fade" id="licence">
+  <div class="card-body pb-2">
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Nom Université:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.nomUniversiteLicence}">{{ candidat.nomUniversiteLicence || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Pays Licence:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.paysLicence}">{{ candidat.paysLicence || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Spécialité Licence:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.specialiteLicence}">{{ candidat.specialiteLicence || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Année d'Obtention Licence:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.anneeObtentionLicence}">{{ candidat.anneeObtentionLicence || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Mention Licence:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.mentionLicence}">{{ candidat.mentionLicence || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Moyenne Licence:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.moyenneLicence}">{{ candidat.moyenneLicence || 'non remplie' }}</span>
+      </div>
+  </div>
+</div>
+
+<div class="tab-pane fade" id="master">
+  <hr class="border-light m-0">
+  <div class="card-body">
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Nom Université:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.nomUniversiteMaster}">{{ candidat.nomUniversiteMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Pays Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.paysMaster}">{{ candidat.paysMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Statut Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.statutMaster}">{{ candidat.statutMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Spécialité Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.specialiteMaster}">{{ candidat.specialiteMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Année d'Obtention Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.anneeObtentionMaster}">{{ candidat.anneeObtentionMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Mention Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.mentionMaster}">{{ candidat.mentionMaster || 'non remplie' }}</span>
+      </div>
+      <div class="form-group d-flex align-items-center">
+          <label class="form-label bold-label">Moyenne Master:</label>
+          <span class="form-control-plaintext" [ngClass]="{'text-danger': !candidat.moyenneMaster}">{{ candidat.moyenneMaster || 'non remplie' }}</span>
+      </div>
+  </div>
+</div>
+
+            <div class="tab-pane fade" id="exp-prof">
+                <div class="card-body pb-2">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Expérience Professionnelle:</label>
+                        <span class="form-control-plaintext">{{ candidat.experienceProfessionnelle ? 'Oui' : 'Non' }}</span>
+                    </div>
+                    <div *ngFor="let fonction of candidat.fonctions; let j = index" class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Fonction {{ j + 1 }}:</label>
+                        <span class="form-control-plaintext">{{ fonction || 'non remplie' }}</span>
+                    </div>
+                    <div *ngFor="let secteur of candidat.secteurs; let k = index" class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Secteur {{ k + 1 }}:</label>
+                        <span class="form-control-plaintext">{{ secteur || 'non remplie' }}</span>
+                    </div>
+                    <div *ngFor="let duDate of candidat.duDates; let l = index" class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Date de Début {{ l + 1 }}:</label>
+                        <span class="form-control-plaintext">{{ duDate || 'non remplie' }}</span>
+                    </div>
+                    <div *ngFor="let auDate of candidat.auDates; let m = index" class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Date de Fin {{ m + 1 }}:</label>
+                        <span class="form-control-plaintext">{{ auDate || 'non remplie' }}</span>
+                    </div>
+
+                    <label>Langues</label>
+                    <div *ngFor="let langue of candidat.langues; let i = index" class="form-group d-flex align-items-center">
+                        <label class="form-label bold-label">Langue {{ i + 1 }}:</label>
+                        <span class="form-control-plaintext">{{ langue || 'non remplie' }}</span>
+                    </div>
+                </div>
+            </div>
+
+
+                  <div class="tab-pane fade" id="doc">
+                    <div class="card-body pb-2">
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Baccalauréat:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.baccalaureatScanne; else notFoundBaccalaureat">
+                                    <button (click)="download(candidat.baccalaureatScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundBaccalaureat>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Licence:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.licenceScanne; else notFoundLicence">
+                                    <button (click)="download(candidat.licenceScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundLicence>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Master:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.masterScanne; else notFoundMaster">
+                                    <button (click)="download(candidat.masterScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundMaster>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Relevé de Notes Master:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.releveNoteMasterScanne; else notFoundReleveNoteMaster">
+                                    <button (click)="download(candidat.releveNoteMasterScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundReleveNoteMaster>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Relevé de Notes Licence:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.releveNoteLicenceScanne; else notFoundReleveNoteLicence">
+                                    <button (click)="download(candidat.releveNoteLicenceScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundReleveNoteLicence>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">Carte Nationale:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.carteNationaleScanne; else notFoundCarteNationale">
+                                    <button (click)="download(candidat.carteNationaleScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundCarteNationale>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center">
+                            <label class="form-label bold-label">CV:</label>
+                            <span class="form-control-plaintext">
+                                <ng-container *ngIf="candidat.cvScanne; else notFoundCV">
+                                    <button (click)="download(candidat.cvScanne)" class="btn btn-primary">
+                                        <fa-icon [icon]="faDownload" class="me-2"></fa-icon>
+                                        Télécharger le document
+                                    </button>
+                                </ng-container>
+                                <ng-template #notFoundCV>
+                                    <span class="text-danger">Non trouvée</span>
+                                </ng-template>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,69 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.planning-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: url('/assets/img/slider_1663156877abdelmalek-essaadi-u.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.planning-container h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #12315a;
+  margin-bottom: 10px;
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.planning-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.85); /* Slightly opaque to help readability */
+}
+
+.planning-table th, .planning-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+.planning-table th {
+  background-color: #12315a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.planning-table td {
+  background-color: rgba(245, 245, 245, 0.9);
+}
+
+.planning-table td strong {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .planning-table th, .planning-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

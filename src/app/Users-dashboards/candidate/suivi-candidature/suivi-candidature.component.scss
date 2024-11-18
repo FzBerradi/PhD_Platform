@@ -1,0 +1,47 @@
+.candidature-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.styled-table thead {
+  background-color: #4CAF50; /* Green header */
+  color: white;
+}
+
+.styled-table th, 
+.styled-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+  background-color: #ffffff; /* White background for rows */
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f2f2f2; /* Light gray on hover */
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: white;
+}
+
+.status-badge.accepted {
+  background-color: #28a745; /* Green for accepted */
+}
+
+.status-badge.refused {
+  background-color: #dc3545; /* Red for refused */
+}

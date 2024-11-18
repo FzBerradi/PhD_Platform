@@ -1,0 +1,55 @@
+<mat-card class="w-100">
+  <mat-card-content>
+      <h4>Candidature </h4>
+  
+      <!-- Add New Subject Button -->
+      <div class="add-button-container">
+      </div>
+            <br>
+
+    <div class="table-responsive">
+      
+      <table mat-table [dataSource]="MesSujets" class="mat-elevation-z8">
+        
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="titre">
+          <th mat-header-cell *matHeaderCellDef>Subject </th>
+          <td mat-cell *matCellDef="let MesSujets"> {{ MesSujets.titre }} </td>
+        </ng-container>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let MesSujets"> {{ MesSujets.description }} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="projet">
+          <th mat-header-cell *matHeaderCellDef> Projet </th>
+          <td mat-cell *matCellDef="let MesSujets"> {{ MesSujets.projet }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef> Etat </th>
+          <td mat-cell *matCellDef="let MesSujets" class="centered-content">
+          demande en cours
+            </td>
+          
+          
+        </ng-container>
+        
+        
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="['titre', 'description', 'projet', 'etat']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['titre', 'description', 'projet', 'etat']"></tr>
+
+      </table>
+    </div>
+ 
+
+
+
+
+  </mat-card-content>
+</mat-card>
+

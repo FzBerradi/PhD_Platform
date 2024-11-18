@@ -1,0 +1,154 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4>Les Candidats Acceptés</h4>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="acceptedCandidates" class="mat-elevation-z8">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="idCandidate">
+          <th mat-header-cell *matHeaderCellDef> ID Candidat </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idCandidate }} </td>
+        </ng-container>
+
+        <!-- ID Entretien Column -->
+        <ng-container matColumnDef="idEntretien">
+          <th mat-header-cell *matHeaderCellDef> ID Entretien </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idEntretien }} </td>
+        </ng-container>
+
+        <!-- Candidate Name Column -->
+        <ng-container matColumnDef="candidateName">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.candidateName }} </td>
+        </ng-container>
+
+        <!-- Candidate Prenom Column -->
+        <ng-container matColumnDef="candidatePrenom">
+          <th mat-header-cell *matHeaderCellDef> Prénom </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.candidatePrenom }} </td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.date }} </td>
+        </ng-container>
+
+        <!-- Resultat Column -->
+        <ng-container matColumnDef="resultat">
+          <th mat-header-cell *matHeaderCellDef> Résultat </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.resultat }} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Statut </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.status }} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let candidature">
+            <button mat-button (click)="viewDetails(candidature.idCandidate)" class="btn btn-primary">View Details</button>
+            <button mat-button (click)="openModal(candidature.idCandidate)" class="btn btn-primary">Add Date</button>
+          </td>
+        </ng-container>
+
+        <!-- Rendez-Vous Column -->
+        <ng-container matColumnDef="rendezVous">
+          <th mat-header-cell *matHeaderCellDef> Rendez-Vous </th>
+          <td mat-cell *matCellDef="let candidate">
+            <ng-container *ngIf="candidate.rendezVousDate; else noRendezVous">
+              {{ candidate.rendezVousDate | date: 'shortDate' }}
+            </ng-container>
+            <ng-template #noRendezVous>
+              <button mat-button (click)="openModal(candidate.idCandidate) ">Add Rendez-Vous</button>
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['idCandidate', 'idEntretien', 'candidateName', 'candidatePrenom', 'date', 'resultat', 'status', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['idCandidate', 'idEntretien', 'candidateName', 'candidatePrenom', 'date', 'resultat', 'status', 'actions'];"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+<div class="container">
+  <div
+    class="modal-overlay"
+    tabindex="-1"
+    role="dialog"
+    [ngClass]="{'show': isStrModalOpen}"
+    [ngStyle]="{'display': isStrModalOpen ? 'block' : 'none'}"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter Date</h5>
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #dateForm="ngForm">
+            <div class="form-group">
+              <label for="dateRendezvous">Date de l'entretien</label>
+              <input
+                type="date"
+                id="dateRendezvous"
+                class="form-control"
+                [(ngModel)]="dateRendezvous"
+                name="dateRendezvous"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+
+  <div class="container">
+    <div
+      class="modal-overlay"
+      tabindex="-1"
+      role="dialog"
+      [ngClass]="{'show': isStrModalOpen}"
+      [ngStyle]="{'display': isStrModalOpen ? 'block' : 'none'}"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Ajouter Date</h5>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="onSubmit()" #dateForm="ngForm">
+              <div class="form-group">
+                <label for="dateRendezvous">Date de l'entretien</label>
+                <input
+                  type="date"
+                  id="dateRendezvous"
+                  class="form-control"
+                  [(ngModel)]="dateRendezvous"
+                  name="dateRendezvous"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

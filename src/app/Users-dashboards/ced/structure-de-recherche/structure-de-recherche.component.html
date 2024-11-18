@@ -1,0 +1,544 @@
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+
+
+
+
+<div class="button-container">
+  <button (click)="isModalOpen = true" class="btn btn-primary">Add Etablissement</button>
+  <button (click)="isStrModalOpen = true" class="btn btn-primary">Ajouter Structure</button>
+  <button (click)="isProfModalOpen = true" class="btn btn-primary">Add Professeur</button>
+</div>
+
+
+<!-- <mat-card class="w-100">
+  <mat-card-content>
+    <h4 class="mb-56">Les établissements</h4>
+    <label for="etablissementSelect">Select an Établissement:</label>
+    <select id="etablissementSelect" class="form-control" (change)="onEtablissementSelect($event)">
+      <option value="">-- Select an Établissement --</option>
+      <option *ngFor="let etab of etablissements" [value]="etab.idEtablissement">{{ etab.nomEtablissement }}</option>
+    </select>
+  </mat-card-content>
+
+  <mat-card-content>
+    <div class="form-group">
+      <div *ngIf="structures.length > 0">
+        <h3>Structures de Recherche:</h3>
+
+        <div *ngFor="let structure of structures">
+          <div class="form-group">
+            <label for="structureSelect-{{ structure.idSTr }}">Select Structure: {{ structure.nom }}</label>
+            <select id="structureSelect-{{ structure.idSTr }}" class="form-control" (change)="onStructureSelect(structure.idSTr)">
+              <option value="">-- Select Structure --</option>
+              <option [value]="structure.idSTr">{{ structure.nom }}</option>
+            </select>
+
+<div *ngIf="selectedProfessors[structure.idSTr] && selectedProfessors[structure.idSTr]!.length > 0; else noProfessors">
+              <h4>Professors in {{ structure.nom }}:</h4>
+
+              <table class="table table-striped mt-3">
+                <thead>
+                  <tr>
+                    <th>Adresse</th>
+                    <th>Other Info</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prof of selectedProfessors[structure.idSTr]">
+                    <td>{{ prof.adresse }}</td>
+                    <td>{{ prof.otherInfo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ng-template #noProfessors>
+              <p>No professors available</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card> -->
+
+
+
+<div class="row">
+  <!-- Card column -->
+  <div class="col-12">
+    <mat-card>
+      <mat-card-content>
+        <h4 class="mb-32">Les Structure de Recherche</h4>
+        <mat-tab-group mat-stretch-tabs="false">
+          <mat-tab label="Tab 1">
+            <mat-card-content>
+              <h4>Establissements List</h4>
+              <div class="table-responsive">
+                <table mat-table [dataSource]="etablissements" class="mat-elevation-z8 styled-table">
+                  
+                  <!-- Establishment Name Column -->
+                  <ng-container matColumnDef="nomEtablissement">
+                    <th mat-header-cell *matHeaderCellDef class="small-column"> Establishment Name </th>
+                    <td mat-cell *matCellDef="let etablissement" class="small-column">
+                      {{ etablissement.nomEtablissement }}
+                    </td>
+                  </ng-container>
+          
+                  <!-- Address Column -->
+                  <ng-container matColumnDef="adresseEtablissement">
+                    <th mat-header-cell *matHeaderCellDef class="small-column"> Address </th>
+                    <td mat-cell *matCellDef="let etablissement" class="small-column"> 
+                      {{ etablissement.adresseEtablissement }} 
+                    </td>
+                  </ng-container>
+          
+                  <!-- City Column -->
+                  <ng-container matColumnDef="ville">
+                    <th mat-header-cell *matHeaderCellDef class="small-column"> City </th>
+                    <td mat-cell *matCellDef="let etablissement" class="small-column"> 
+                      {{ etablissement.ville }} 
+                    </td>
+                  </ng-container>
+          
+                  <!-- Structures Column -->
+                  <ng-container matColumnDef="structures">
+                    <th mat-header-cell *matHeaderCellDef> Structures </th>
+                    <td mat-cell *matCellDef="let etablissement">
+                      <button mat-button class="toggle-button" (click)="toggleDropdown(etablissement.idEtablissement)">
+                        {{ expandedIndex === etablissement.idEtablissement ? 'Hide Structures' : 'Show Structures' }}
+                      </button>
+                      <div *ngIf="expandedIndex === etablissement.idEtablissement">
+                        <table class="table table-bordered structures-table" style="margin-top: 10px; width: 100%;">
+                          <thead>
+                            <tr>
+                              <th>Structure Name</th>
+                              <th>Type</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let structure of etablissement.structures">
+                              <td>{{ structure.nom }}</td>
+                              <td>{{ structure.typeStructure }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </td>
+                  </ng-container>
+          
+                  <tr mat-header-row *matHeaderRowDef="['nomEtablissement', 'adresseEtablissement', 'ville', 'structures']"></tr>
+                  <tr mat-row *matRowDef="let row; columns: ['nomEtablissement', 'adresseEtablissement', 'ville', 'structures'];"></tr>
+                </table>
+              </div>
+            </mat-card-content>
+          </mat-tab>
+          <mat-tab label="Tab 2">
+            <mat-card-content>
+                  <div class="table-container">
+                    <h4>Professeurs List</h4>
+                    <table mat-table [dataSource]="professors" class="mat-elevation-z8 styled-table">
+                      <!-- ID Column -->
+                      <ng-container matColumnDef="idProfesseur">
+                        <th mat-header-cell *matHeaderCellDef>ID</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.idProfesseur }}</td>
+                      </ng-container>
+              
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="nomPrenom">
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.nom }} {{ professor.prenom }}</td>
+                      </ng-container>
+              
+                      <!-- Email Column -->
+                      <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.email }}</td>
+                      </ng-container>
+              
+                      <!-- Grade Column -->
+                      <ng-container matColumnDef="grade">
+                        <th mat-header-cell *matHeaderCellDef>Grade</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.grade }}</td>
+                      </ng-container>
+              
+                      <!-- Etablissement Column -->
+                      <ng-container matColumnDef="etablissementNom">
+                        <th mat-header-cell *matHeaderCellDef>Etablissement</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.etablissementNom }}</td>
+                      </ng-container>
+              
+                      <!-- Structure de recherche Column -->
+                      <ng-container matColumnDef="structureRechercheNom">
+                        <th mat-header-cell *matHeaderCellDef>Structure de recherche</th>
+                        <td mat-cell *matCellDef="let professor">{{ professor.structureRechercheNom }}</td>
+                      </ng-container>
+              
+                      <!-- Action Column -->
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let professor">
+                          <button mat-button color="primary" class="toggle-button" (click)="openSubjectsModal(professor.idProfesseur)">
+                            View Subjects
+                          </button>
+                        </td>
+                      </ng-container>
+              
+                      <tr mat-header-row *matHeaderRowDef="['idProfesseur', 'nomPrenom', 'email', 'grade', 'etablissementNom', 'structureRechercheNom', 'action']"></tr>
+                      <tr mat-row *matRowDef="let row; columns: ['idProfesseur', 'nomPrenom', 'email', 'grade', 'etablissementNom', 'structureRechercheNom', 'action'];"></tr>
+                    </table>
+                  </div>
+                  
+                  
+                  <!-- Subjects Modal -->
+                  <div class="modal-overlay" tabindex="-1" role="dialog" [ngClass]="{'show': isSubjectsModalOpen}" [ngStyle]="{'display': isSubjectsModalOpen ? 'block' : 'none'}">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 >Les sujets de Professeur</h5>
+                          <button type="button" class="close" aria-label="Close" (click)="closeSubjectsModal()">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <table class="modern-table">
+                            <thead>
+                              <tr>
+                                <th>Sujet ID</th>
+                                <th>Sujet Name</th>
+                                <th>Sujet Description</th>
+                                <th>Sujet Projet</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let subject of selectedSubjects">
+                                <td>{{ subject.idSujet }}</td>
+                                <td>{{ subject.titre }}</td>
+                                <td>{{ subject.description }}</td>
+                                <td>{{ subject.projet }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </mat-card-content>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+<!-- <div *ngFor="let etablissement of etablissements" class="etablissement-card">
+  <h2>{{ etablissement.nomEtablissement }}</h2>
+  <p>Address: {{ etablissement.adresseEtablissement }}</p>
+  <p>City: {{ etablissement.ville }}</p>
+  <h3>Structures:</h3>
+  <ul>
+    <li *ngFor="let structure of etablissement.structures">
+      {{ structure.nom }} ({{ structure.typeStructure }})
+    </li>
+  </ul>
+</div> -->
+
+
+
+
+<!--
+
+  <div class="form-group">
+    <label for="etablissementSelect">Select an Établissement:</label>
+    <select id="etablissementSelect" class="form-control" (change)="onEtablissementSelect($event)">
+      <option value="">-- Select an Établissement --</option>
+      <option *ngFor="let etab of etablissements" [value]="etab.idEtablissement">{{ etab.nomEtablissement }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="structures.length > 0">
+    <h3>Structures de Recherche:</h3>
+    <div *ngFor="let structure of structures">
+      <div class="form-group">
+        <label for="structureSelect-{{ structure.idSTr }}">Select Structure: {{ structure.nom }}</label>
+        <select id="structureSelect-{{ structure.idSTr }}" class="form-control" (change)="onStructureSelect(structure.idSTr)">
+          <option value="">-- Select Structure --</option>
+          <option [value]="structure.idSTr">{{ structure.nom }}</option>
+        </select>
+
+        <div *ngIf="selectedProfessors[structure.idSTr]">
+          <h4>Professors in {{ structure.nom }}:</h4>
+          <ul *ngIf="selectedProfessors[structure.idSTr]!.length > 0; else noProfessors">
+            <li *ngFor="let prof of selectedProfessors[structure.idSTr]">{{ prof.idProfesseur }}</li>
+          </ul>
+          <ng-template #noProfessors>
+            <p>No professors available</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+<div class="container">
+  <!-- <button (click)="isModalOpen = true" class="btn btn-primary">Add Etablissement</button> -->
+
+  <div class="modal-overlay" tabindex="-1" role="dialog" [ngClass]="{'show': isModalOpen}" [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter Etablissement</h5>
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #etablissementForm="ngForm">
+            <div class="form-group">
+              <label for="nomEtablissement">Nom Etablissement</label>
+              <input type="text" id="nomEtablissement" class="form-control" [(ngModel)]="etablissement.nomEtablissement" name="nomEtablissement" required>
+            </div>
+            <div class="form-group">
+              <label for="adresseEtablissement">Adresse Etablissement</label>
+              <input type="text" id="adresseEtablissement" class="form-control" [(ngModel)]="etablissement.adresseEtablissement" name="adresseEtablissement" required>
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville</label>
+              <input type="text" id="ville" class="form-control" [(ngModel)]="etablissement.ville" name="ville" required>
+            </div>
+
+            <div class="form-group">
+              <input type="number" id="idCED" hidden class="form-control" [(ngModel)]="idCED" name="idCED">
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div
+    class="modal-overlay"
+    tabindex="-1"
+    role="dialog"
+    [ngClass]="{'show': isStrModalOpen}"
+    [ngStyle]="{'display': isStrModalOpen ? 'block' : 'none'}"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter Structure</h5>
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #strForm="ngForm">
+            <div class="form-group">
+              <label for="nomEtablissement">Nom Structure</label>
+              <input
+                type="text"
+                id="nomEtablissement"
+                class="form-control"
+                [(ngModel)]="structure.nom"
+                name="nomEtablissement"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="adresseEtablissement">Type Structure</label>
+              <input
+                type="text"
+                id="adresseEtablissement"
+                class="form-control"
+                [(ngModel)]="structure.typeStructure"
+                name="adresseEtablissement"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="idEtablissement">Établissement</label>
+              <select
+                id="idEtablissement"
+                class="form-control"
+                [(ngModel)]="selectedEtablissementId"
+                name="idEtablissement"
+                required
+              >
+                <option *ngFor="let etablissement of etablissements" [value]="etablissement.idEtablissement">
+                  {{ etablissement.nomEtablissement }}
+                </option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div
+    class="modal-overlay"
+    tabindex="-1"
+    role="dialog"
+    [ngClass]="{'show': isProfModalOpen}"
+    [ngStyle]="{'display': isProfModalOpen ? 'block' : 'none'}"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter Professeur</h5>
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #professeurForm="ngForm">
+            <div class="d-flex">
+              <div class="form-group mr-5">
+                <label for="prenom">Prénom</label>
+                <input
+                  type="text"
+                  id="prenom"
+                  class="form-control"
+                  [(ngModel)]="professeur.prenom"
+                  name="prenom"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input
+                  type="text"
+                  id="nom"
+                  class="form-control"
+                  [(ngModel)]="professeur.nom"
+                  name="nom"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                [(ngModel)]="professeur.email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de Passe</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                [(ngModel)]="professeur.password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="d-flex">
+            <div class="form-group">
+              <label for="tel">Téléphone</label>
+              <input
+                type="text"
+                id="tel"
+                class="form-control"
+                [(ngModel)]="professeur.tel"
+                name="tel"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="grade">Grade</label>
+              <input
+                type="text"
+                id="grade"
+                class="form-control"
+                [(ngModel)]="professeur.grade"
+                name="grade"
+                required
+              />
+            </div>
+          </div>
+
+            <div class="form-group">
+              <label for="adresse">Adresse</label>
+              <input
+                type="text"
+                id="adresse"
+                class="form-control"
+                [(ngModel)]="professeur.adresse"
+                name="adresse"
+                required
+              />
+            </div>
+
+
+            <!-- Dropdown for selecting Établissement -->
+            <!-- <div class="form-group">
+              <label for="idEtablissement">Établissement</label>
+              <select
+                id="idEtablissement"
+                class="form-control"
+                [(ngModel)]="selectedEtablissementId"
+                name="idEtablissement"
+                required
+              >
+                <option *ngFor="let etablissement of etablissements" [value]="etablissement.idEtablissement">
+                  {{ etablissement.nomEtablissement }}
+                </option>
+              </select>
+            </div> -->
+            <div class="form-group">
+              <label for="idEtablissement">Établissement</label>
+              <select
+                id="idEtablissement"
+                class="form-control"
+                [(ngModel)]="selectedEtablissementId"
+                name="idEtablissement"
+                (change)="onEtablissementSelect($event)"
+                required
+              >
+                <option *ngFor="let etablissement of etablissements" [value]="etablissement.idEtablissement">
+                  {{ etablissement.nomEtablissement }}
+                </option>
+              </select>
+            </div>
+
+            <!-- Dropdown for selecting Structure de Recherche -->
+            <div class="form-group">
+              <label for="idStructureRecherche">Structure de Recherche</label>
+              <select
+                id="idStructureRecherche"
+                class="form-control"
+                [(ngModel)]="selectedStructureId"
+                name="idStructureRecherche"
+                required
+              >
+                <option *ngFor="let structure of structures" [value]="structure.idSTr">
+                  {{ structure.nom }}
+                </option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,163 @@
+.modal {
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5); /* Gray with 50% opacity */
+  z-index: 2000; /* Ensure it covers the entire screen */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Higher than the overlay */
+}
+
+
+.small-column {
+  width: 18%; /* Adjust the percentage as needed */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.styled-table th, .styled-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #4CAF50; /* Green background for header */
+  color: white; /* White text color */
+  font-weight: bold; /* Bold text */
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping */
+}
+
+.styled-table tr:hover {
+  background-color: #ddd; /* Highlight on hover */
+}
+
+.toggle-button {
+  background-color: #008CBA; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 8px 16px; /* Button padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Inline block */
+  font-size: 14px; /* Font size */
+  margin: 4px 2px; /* Margin */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.toggle-button:hover {
+  background-color: #005f73; /* Darker blue on hover */
+}
+
+.structures-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.structures-table th, .structures-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.structures-table th {
+  background-color: #4CAF50; /* Green background for header */
+  color: white; /* White text color */
+  font-weight: bold; /* Bold text */
+}
+
+.structures-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping */
+}
+
+
+.button-container {
+  display: flex; /* Use flexbox for alignment */
+  gap: 10px; /* Space between buttons */
+  margin: 20px 0; /* Margin around the button container */
+}
+
+.btn {
+  padding: 10px 20px; /* Padding for buttons */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+
+//sujet tabel 
+.modern-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Merge borders */
+  margin: 20px 0; /* Space above and below the table */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font family */
+}
+
+.modern-table th,
+.modern-table td {
+  border: 1px solid #ddd; /* Light gray border */
+  padding: 10px; /* Padding inside cells */
+  text-align: left; /* Left-align text */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.modern-table th {
+  background-color: #f2f2f2; /* Dark background for header */
+  color: black; /* White text color for headers */
+  font-weight: bold; /* Bold text for headers */
+}
+
+.modern-table tbody tr {
+  background-color: #ffffff; /* Default background for rows */
+}
+
+.modern-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+.modern-table tbody tr:hover {
+  background-color: #e2e2e2; /* Light gray on hover */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.modern-table td {
+  font-size: 14px; /* Font size for cells */
+}

@@ -1,0 +1,35 @@
+<div class="planning-container">
+  <h2>PhD Registration and Application Calendar</h2>
+  <p class="intro-text">
+    Here is the schedule for PhD openings and important dates. Make sure to keep track of these deadlines and prepare your documents accordingly.
+  </p>
+
+  <table class="planning-table">
+    <thead>
+      <tr>
+        <th>Theme</th>
+        <th>Academic Year</th>
+        <th>Reinscription Date</th>
+        <th>Submission Date</th>
+        <th>Subject Proposal Date</th>
+        <th>Subject Validation Date</th>
+        <th>Student Convocation Date</th>
+        <th>Results Display Date</th>
+        <th>Registration Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planning of plannings">
+        <td>{{ planning.titre }}</td>
+        <td>{{ planning.anneeUniversitaire }}</td>
+        <td>{{ planning.dateReinscription | date }}</td>
+        <td>{{ planning.dateDepotDossier | date }}</td>
+        <td>{{ planning.datePropositionSujets | date }}</td>
+        <td>{{ planning.dateValidationSujets | date }}</td>
+        <td>{{ planning.dateConvocationEtudiants | date }}</td>
+        <td>{{ planning.dateAffichageResultats | date }}</td>
+        <td>{{ planning.dateInscription | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

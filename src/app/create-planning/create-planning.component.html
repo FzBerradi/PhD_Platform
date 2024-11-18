@@ -1,0 +1,61 @@
+<div class="calendar-planning-container">
+  <img src="assets/images/logopuae.png" alt="UAE Logo" class="uae-logo" />
+
+  <h2>Create Planning</h2>
+  <form (ngSubmit)="createPlanning()" #planningForm="ngForm" class="calendar-form">
+    <div class="calendar-grid">
+      <div class="calendar-item">
+        <label for="titre">Title:</label>
+        <input type="text" [(ngModel)]="planning.titre" name="titre" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="anneeUniversitaire">Academic Year:</label>
+        <input type="text" [(ngModel)]="planning.anneeUniversitaire" name="anneeUniversitaire" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateReinscription">Reinscription Date:</label>
+        <input type="date" [(ngModel)]="planning.dateReinscription" name="dateReinscription" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateDepotDossier">Submission Date:</label>
+        <input type="date" [(ngModel)]="planning.dateDepotDossier" name="dateDepotDossier" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="datePropositionSujets">Subject Proposal Date:</label>
+        <input type="date" [(ngModel)]="planning.datePropositionSujets" name="datePropositionSujets" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateValidationSujets">Subject Validation Date:</label>
+        <input type="date" [(ngModel)]="planning.dateValidationSujets" name="dateValidationSujets" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateConvocationEtudiants">Student Convocation Date:</label>
+        <input type="date" [(ngModel)]="planning.dateConvocationEtudiants" name="dateConvocationEtudiants" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateAffichageResultats">Results Display Date:</label>
+        <input type="date" [(ngModel)]="planning.dateAffichageResultats" name="dateAffichageResultats" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="dateInscription">Registration Date:</label>
+        <input type="date" [(ngModel)]="planning.dateInscription" name="dateInscription" required />
+      </div>
+
+      <div class="calendar-item">
+        <label for="cedId">CED ID:</label>
+        <input type="number" [(ngModel)]="planning.cedId" name="cedId" required />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="planningForm.invalid">Create Planning</button>
+    <button type="button" (click)="router.navigate(['/display-planning'])">View Planning Entries</button>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+  <a routerLink="/home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>UAE PhD</h2>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-2 p-lg-0">
+      <button (click)="navigateToLogin()" class="nav-item nav-link">Login</button>
+      <button (click)="navigateToRegister()" class="nav-item nav-link">Register</button>
+      <button (click)="navigateToDisplayPlanning()" class="nav-item nav-link">Planning Préinscription</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid p-0 mb-0">
+  <div class="owl-carousel header-carousel position-relative">
+      <div class="owl-carousel-item position-relative">
+          <img class="img-fluid w-100" src="./assets/img/slider_1663156877abdelmalek-essaadi-u.jpg" alt="Carousel Image 1">
+          <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
+              <div class="container">
+                  <div class="row justify-content-start">
+                      <div class="col-sm-10 col-lg-8">
+                          <h5 class="text-primary text-uppercase mb-3">Explorez les Meilleurs Programmes</h5>
+                          <h1 class="display-3 text-white mb-4">Votre Future PhD Commence Ici</h1>
+                          <p class="fs-5 text-white mb-4 pb-2">Rejoignez notre communauté d'apprentissage</p>
+                          <a routerLink="/display-planning" class="btn btn-primary py-md-3 px-md-5 me-3">En Savoir Plus</a>
+                          <a (click)="navigateToLogin()" class="btn btn-light py-md-3 px-md-5">Inscrivez-vous Maintenant</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

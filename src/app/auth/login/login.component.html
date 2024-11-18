@@ -1,0 +1,76 @@
+<style>
+  /* Custom styling for top margin and padding */
+  .custom-top-margin {
+    margin-top: 24px; /* Adjust the margin as needed */
+  }
+  .custom-padding {
+    padding: 16px; /* Adjust the padding as needed */
+  }
+  /* Additional styles for spacing and alignment */
+  .m-t-24 {
+    margin-top: 24px;
+  }
+  .m-t-30 {
+    margin-top: 30px;
+  }
+  .m-b-12 {
+    margin-bottom: 12px;
+  }
+  .m-r-8 {
+    margin-right: 8px;
+  }
+  .m-r-4 {
+    margin-right: 4px;
+  }
+  .m-l-auto {
+    margin-left: auto;
+  }
+  .w-100 {
+    width: 100%;
+  }
+</style>
+
+<div class="blank-layout-container justify-content-center align-items-center  custom-top-margin custom-padding"
+     autosize autoFocus dir="ltr">
+  <div class="position-relative row w-100 h-100  justify-content-center">
+    <div class="col-lg-6 d-flex align-items-center">
+      <mat-card class="cardWithShadow boxed-auth">
+        <mat-card-content class="p-32">
+          <div class="text-center">
+            <a [routerLink]="['/dashboard']">
+              <img src="./assets/images/logopuae.png" class="align-middle m-2" alt="logo" />
+            </a>
+          </div>
+
+
+
+
+          <form class="m-t-30">
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Email</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput [(ngModel)]="email" name="email" required [ngModelOptions]="{standalone: true}" type="email"/>
+            </mat-form-field>
+
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Password</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput [(ngModel)]="password" name="password" [type]="isPasswordVisible ? 'text' : 'password'" required [ngModelOptions]="{standalone: true}"/>
+              <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                <mat-icon>{{ isPasswordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+            </mat-form-field>
+
+       
+
+            <a mat-flat-button color="primary" class="w-100" (click)="login()">Sign In</a>
+          </form>
+          <span class="d-block f-w-500 text-center m-t-24">New to PhD Platform?
+            <a [routerLink]="['/register']" class="text-decoration-none text-primary f-w-500 f-s-14">
+              Create an account
+          </a>
+
+          </span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+<!-- <mat-card class="w-100">
+  <mat-card-content>
+    <h4>Candidature List</h4>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="candidatures" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="idcandidature">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idcandidature }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="candidatName">
+          <th mat-header-cell *matHeaderCellDef> Candidate Name </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.candidatName }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="etatCandidature">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let candidature" class="centered-content">
+            <ng-container *ngIf="candidature.etatCandidature === null; else showStatus">
+              <button mat-raised-button class="me-8 mb-8" color="primary" (click)="acceptCandidature(candidature.idcandidature)">
+                Accepter
+              </button>
+              <button mat-raised-button class="me-8 mb-8" color="warn" (click)="refuseCandidature(candidature.idcandidature)">
+                Rejeter
+              </button>
+            </ng-container>
+
+            <ng-template #showStatus>
+              <span class="badge rounded-pill"
+                    [ngClass]="{
+                      'badge-success': candidature.etatCandidature === 'Accepted',
+                      'badge-danger': candidature.etatCandidature === 'Rejected',
+                    }">
+                {{ candidature.etatCandidature }}
+              </span>
+            </ng-template>
+          </ng-container>
+
+        <ng-container matColumnDef="idsujet">
+          <th mat-header-cell *matHeaderCellDef> Subject ID </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idsujet }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="viewCandidat">
+          <th mat-header-cell *matHeaderCellDef> View Candidate </th>
+          <td mat-cell *matCellDef="let candidature">
+            <button mat-button color="accent" (click)="viewDetails(candidature.idCandidat)">
+              View
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['idcandidature', 'candidatName', 'etatCandidature', 'idsujet','viewCandidat']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['idcandidature', 'candidatName', 'etatCandidature', 'idsujet', 'viewCandidat'];"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card> -->
+
+
+
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4>Candidature List</h4>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="candidatures" class="mat-elevation-z8">
+
+        <!-- Candidature ID Column -->
+        <ng-container matColumnDef="idcandidature">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idcandidature }} </td>
+        </ng-container>
+
+        <!-- Candidate Name Column -->
+        <ng-container matColumnDef="candidatName">
+          <th mat-header-cell *matHeaderCellDef> Candidate Name </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.candidatName }} {{ candidature.candidatPrenom }} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <!-- <ng-container matColumnDef="etatCandidature">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let candidature" class="centered-content">
+            <ng-container *ngIf="!candidature.etatCandidature; else showStatus">
+              <button mat-raised-button class="me-8 mb-8" color="primary" (click)="acceptCandidature(candidature.idcandidature)">
+                Accepter
+              </button>
+              <button mat-raised-button class="me-8 mb-8" color="warn" (click)="refuseCandidature(candidature.idcandidature)">
+                Rejeter
+              </button>
+            </ng-container>
+
+            <ng-template #showStatus>
+              <span class="badge rounded-pill"
+                    [ngClass]="{
+                      'badge-success': candidature.etatCandidature === 'accepted',
+                      'badge-danger': candidature.etatCandidature === 'rejected',
+                    }">
+                {{ candidature.etatCandidature }}
+              </span>
+            </ng-template>
+          </td>
+        </ng-container> -->
+
+
+<!-- test if it works  -->
+
+        <ng-container matColumnDef="etatCandidature">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let candidature" class="centered-content">
+            <ng-container *ngIf="candidature.etatCandidature; else showStatus">
+              <span class="badge rounded-pill"
+                    [ngClass]="{
+                    'badge-success': candidature.etatCandidature === 'accepted' || candidature.etatCandidature === 'called' || candidature.etatCandidature === 'doctorant',
+                     'badge-danger': candidature.etatCandidature === 'refused',
+
+
+                    }">
+                {{ candidature.etatCandidature }}
+              </span>
+            </ng-container>
+
+            <ng-template #showStatus>
+              <button mat-raised-button class="me-8 mb-8" color="primary" (click)="acceptCandidature(candidature.idcandidature)">
+                Accepter
+              </button>
+              <button mat-raised-button class="me-8 mb-8" color="warn" (click)="refuseCandidature(candidature.idcandidature)">
+                Rejeter
+              </button>
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <!-- Subject ID Column -->
+        <ng-container matColumnDef="idsujet">
+          <th mat-header-cell *matHeaderCellDef> Subject ID </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.idsujet }} </td>
+        </ng-container>
+
+        <!-- View Candidate Column -->
+        <ng-container matColumnDef="viewCandidat">
+          <th mat-header-cell *matHeaderCellDef> View Candidate </th>
+          <td mat-cell *matCellDef="let candidature">
+            <button mat-button color="accent" (click)="viewDetails(candidature.idCandidat)">
+              View
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['idcandidature', 'candidatName', 'etatCandidature', 'idsujet', 'viewCandidat']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['idcandidature', 'candidatName', 'etatCandidature', 'idsujet', 'viewCandidat'];"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+

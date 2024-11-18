@@ -1,0 +1,82 @@
+// _navbar.scss
+$primary-color: #1b3d61; // Couleur principale
+$background-color: #ffffff; // Couleur d'arrière-plan
+
+.navbar {
+  &.navbar-light {
+    background-color: $background-color;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    .navbar-brand {
+      color: $primary-color;
+
+      h2 {
+        font-weight: bold;
+      }
+    }
+
+    .navbar-nav {
+      .nav-item {
+        &.nav-link {
+          border: none;
+          background: transparent;
+          padding: 0.5rem 1rem;
+          font-weight: 500;
+          color: #333;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+// _carousel.scss
+.header-carousel {
+  .owl-carousel-item {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover; // Pour garder le ratio d'aspect
+    }
+
+    .position-absolute {
+      display: flex;
+      align-items: center;
+      background: rgba(24, 29, 56, 0.7);
+
+      .container {
+        .row {
+          .col-lg-8 {
+            h5 {
+              color: $primary-color;
+              text-transform: uppercase;
+            }
+
+            h1 {
+              color: white;
+            }
+
+            p {
+              color: white;
+            }
+
+            .btn {
+              &.btn-primary {
+                padding: 1rem 2rem;
+                margin-right: 1rem;
+              }
+
+              &.btn-light {
+                padding: 1rem 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

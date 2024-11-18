@@ -1,0 +1,78 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4>Candidature List</h4>
+    <br>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="candidatures" class="mat-elevation-z8">
+
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Candidate Lastname </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.nom }} </td>
+        </ng-container>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="prenom">
+          <th mat-header-cell *matHeaderCellDef> Candidate Firstname </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.prenom }} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.email }} </td>
+        </ng-container>
+
+        <!-- Subject Title Column -->
+        <ng-container matColumnDef="titre">
+          <th mat-header-cell *matHeaderCellDef> Subject </th>
+          <td mat-cell *matCellDef="let candidature"> {{ candidature.titre }} </td>
+        </ng-container>
+
+        <!-- View Candidate Button Column -->
+        <ng-container matColumnDef="view">
+          <th mat-header-cell *matHeaderCellDef> View Candidate </th>
+          <td mat-cell *matCellDef="let candidature">
+                     <button mat-button color="accent" (click)="viewDetails(candidature.idCandidate)">
+              View
+            </button>
+            
+          </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let candidature" class="centered-content">
+            <button mat-raised-button color="primary" (click)="acceptCandidature(candidature.iduser)">
+              Accept
+            </button>
+            <button mat-raised-button color="warn" (click)="refuseCandidature(candidature.iduser, candidature.titre)" style="margin-left: 5%;">
+              Reject
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="['nom', 'prenom', 'email', 'titre', 'view', 'status']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['nom', 'prenom', 'email', 'titre', 'view', 'status']"></tr>
+      </table>
+    </div>
+
+    <!-- Form Section -->
+    <div *ngIf="showForm" class="form-container" style="margin-top: 20px;" >
+      <h4 style="color: rgb(255, 255, 255); font-weight: 500; font-size:15px; padding: 20px 20px 10px 50px;">Specify Date for Acceptance</h4>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Date</mat-label>
+        <input matInput [(ngModel)]="specifiedDate" [matDatepicker]="picker" required    [ngModelOptions]="{standalone: true}">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="saveForm()">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="clearForm()">Cancel</button>
+
+    </div>
+
+  </mat-card-content>
+</mat-card>
